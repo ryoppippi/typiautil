@@ -1,7 +1,7 @@
 # typiautil
 
 [![JSR](https://jsr.io/badges/@ryoppippi/typiautil)](https://jsr.io/@ryoppippi/typiautil)
-[![JSR](https://jsr.io/badges/@ryoppippi/typiautil)](https://jsr.io/@ryoppippi/typiautil)
+[![JSR](https://jsr.io/badges/@ryoppippi/typiautil/score)](https://jsr.io/@ryoppippi/typiautil)
 
 A utility library for [typia](https://typia.io/)
 
