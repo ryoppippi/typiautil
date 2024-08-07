@@ -1,1 +1,1 @@
-export * as openai from "./openai/mod.ts";
+export * from "@ryoppippi/typiautil/openai";
