@@ -31,7 +31,7 @@ type Output = {
 
 const client = new OpenAI({})
 
-const jsonSchema = typia.json.application<[Output]>();
+const jsonSchema = typia.json.application<[Output]>;
 const chat = await client.chat.completions.create({
   model: "gpt-4o-mini",
   response_format: typiaJsonToOpenAIResponse({ jsonSchema }),
