@@ -33,7 +33,7 @@ const completion = await client.beta.chat.completions.parse({
   model: "gpt-4o-mini",
   response_format: typiaResponseFormat({
     jsonSchema: typia.json.application<[Output]>(),
-    assertParse: typia.json.createAssertParse<Output>(),
+    validate: typia.createValidate<Output>(), // or typia.createValidateEquals<Output>()
   }),
   messages: [
     {
