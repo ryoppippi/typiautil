@@ -60,24 +60,28 @@ export function typiaJsonToOpenAIJsonSchema(
  * import typia from "typia";
  * import OpenAI from "openai";
  *
+ * /** add description as a JSDoc \*\/
  * type Output = {
- *  id: string;
- *  name: string;
+ *   /** id of the entity \*\/
+ *   id: string & tags.Type<'uint32'>;
+ *
+ *   /** name of the entity \*\/
+ *   name: string & tags.MinLength<1>;
  * }
  *
- * const client = new OpenAI({})
+ *  const client = new OpenAI({})
  *
- * const jsonSchema = typia.json.application<[Output]>();
- * const chat = await client.chat.completions.create({
- *  model: "gpt-4o-mini",
- *  response_format: typiaJsonToOpenAIResponse({ jsonSchema }),
- *  messages: [
- *    {
- *      role: "system",
- *     content: "Extract information and return as the structured data following schema",
- *    },
- *  ],
- * });
+ *  const jsonSchema = typia.json.application<[Output]>();
+ *  const chat = await client.chat.completions.create({
+ *   model: "gpt-4o-mini",
+ *   response_format: typiaJsonToOpenAIResponse({ jsonSchema }),
+ *   messages: [
+ *     {
+ *       role: "system",
+ *      content: "Extract information and return as the structured data following schema",
+ *     },
+ *   ],
+ *  });
  * ```
  */
 export function typiaJsonToOpenAIResponse(
