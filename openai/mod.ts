@@ -88,7 +88,7 @@ export function typiaJsonToOpenAIJsonSchema<T>(
  *  const client = new OpenAI({})
  *
  *  const jsonSchema = typia.json.application<[Output]>();
- *  const chat = await client.chat.completions.create({
+ *  const chat = await client.beata.chat.completions.create({
  *   model: "gpt-4o-mini",
  *   response_format: typiaJsonToOpenAIResponse({ jsonSchema }),
  *   messages: [
@@ -130,7 +130,7 @@ export function typiaJsonToOpenAIResponse<T>(
  *
  *  const client = new OpenAI({})
  *
- *  const chat = await client.chat.completions.create({
+ *  const completion = await client.beta.chat.completions.parse({
  *   model: "gpt-4o-mini",
  *   response_format: typiaResponseFormat({
  *     jsonSchema: typia.json.application<[Output]>(),
@@ -143,6 +143,8 @@ export function typiaJsonToOpenAIResponse<T>(
  *     },
  *   ],
  *  });
+ *
+ * console.log(completion.choices[0].message.parsed);
  * ```
  */
 export function typiaResponseFormat<T>(

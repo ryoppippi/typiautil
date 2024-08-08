@@ -29,7 +29,7 @@ type Output = {
 }
 
 const client = new OpenAI({})
-const chat = await client.chat.completions.create({
+const completion = await client.chat.completions.parse({
   model: "gpt-4o-mini",
   response_format: typiaResponseFormat({
     jsonSchema: typia.json.application<[Output]>(),
