@@ -32,7 +32,7 @@ const client = new OpenAI({})
 const chat = await client.chat.completions.create({
   model: "gpt-4o-mini",
   response_format: typiaResponseFormat({
-    jsonSchema: typia.json.application<[Output]>,
+    jsonSchema: typia.json.application<[Output]>(),
     assertParse: typia.json.createAssertParse<Output>
   }),
   messages: [
@@ -71,7 +71,7 @@ const client = new OpenAI({})
 const chat = await client.chat.completions.create({
   model: "gpt-4o-mini",
   response_format: typiaJsonToOpenAIResponse({
-    jsonSchema: typia.json.application<[Output]>,
+    jsonSchema: typia.json.application<[Output]>(),
   }),
   messages: [
     {
