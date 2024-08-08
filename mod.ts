@@ -1,1 +1,1 @@
-export * from "@ryoppippi/typiautil/openai";
+export * as openai from "@ryoppippi/typiautil/openai";
