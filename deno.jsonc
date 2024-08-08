@@ -20,7 +20,7 @@
     "@ryoppippi/typiautil": "./mod.ts",
     "@ryoppippi/typiautil/openai": "./openai/mod.ts",
     "@cross/test": "jsr:@cross/test@^0.0.9",
-    "@std/assert": "jsr:@std/assert@^0.226.0",
+    "@std/assert": "jsr:@std/assert@^1.0.0",
     "openai": "npm:openai@^4.55.1",
     "typia": "npm:typia@^6.7.2"
   },
