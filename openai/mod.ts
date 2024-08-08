@@ -192,7 +192,10 @@ export function typiaResponseFormat<T>(
 }
 
 /**
- * Creates an AutoParseableTool for OpenAI API from Typia JSON Schema.
+ * Creates a chat completion `function` tool that can be invoked
+ * automatically by the chat completion `.runTools()` method or automatically
+ * parsed by `.parse()` / `.stream()`.
+ *
  * @see [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).
  *
  * @example
