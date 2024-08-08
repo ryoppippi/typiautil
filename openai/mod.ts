@@ -23,6 +23,7 @@ export interface TypiaJsonToOpenAIJsonSchemaParams<T> {
    * field. Only a subset of JSON Schema is supported when `strict` is `true`. To
    * learn more, read the
    * [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).
+   * @default true
    */
   strict?: boolean | null;
 }
@@ -65,7 +66,7 @@ export function typiaJsonToOpenAIJsonSchema<T>(
     name,
     schema: targetSchema as Record<string, unknown>,
     description: targetSchema.description,
-    strict,
+    strict: strict ?? true,
   };
 }
 
