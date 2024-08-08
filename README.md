@@ -55,7 +55,7 @@ import { typiaFunction } from "@ryoppippi/typiautil/openai";
 import typia, { tags } from "typia";
 import OpenAI from "openai";
 
-// description ( you should write in JSDOC, see README.md )
+/** add description as a JSDoc */
 type Params = {
   id: string & tags.Type<'uint32'>;
   name: string & tags.MinLength<1>;
@@ -72,12 +72,14 @@ const completion = await client.beta.chat.completions.parse({
   tool: [typiaFunction({
     jsonSchema: typia.json.application<[Params]>(),
     validate: typia.createValidate<Params>(), // or typia.createValidateEquals<Params>()
-    function: myFunction,
+    name: "dummy", // you can specify the name of the function, otherwise it will be the name of the type (in this case, "Params")
+    description: "dummy function", // you can specify the description of the function, otherwise it will be the JSDoc of the type (in this case, "add description as a JSDoc")
+    function: myFunction, // the function to be called (optional)
    })],
   messages: [
     {
       role: "system",
-      content: "Extract information and return as the structured data following schema",
+      content: "use the dummy function",
     },
   ],
 });

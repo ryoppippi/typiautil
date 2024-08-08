@@ -45,6 +45,11 @@ export interface TypiaResponseFormatParams<T>
  */
 export interface TypiaFunctionParams<T> extends TypiaResponseFormatParams<T> {
   /**
+   * Name of the function.
+   * if not specified, it will be the same as the name of the JSON Schema.
+   */
+  name?: string;
+  /**
    * Description of the function.
    * if not specified, it will be the same as the description of the JSON Schema.
    */
@@ -213,12 +218,15 @@ export function typiaResponseFormat<T>(
  *   tool: [typiaFunction({
  *     jsonSchema: typia.json.application<[Params]>(),
  *     validate: typia.createValidate<Params>(), // or typia.createValidateEquals<Params>()
- *     function: myFunction,
+ *     name: "dummy", // you can specify the name of the function, otherwise it will be the name of the type (in this case, "Params")
+ *     description: "dummy function", // you can specify the description of the function, otherwise it will be the JSDoc of the type (in this case, "add description as a JSDoc")
+ *     function: myFunction, // the function to be called (optional)
  *    })],
  *   messages: [
  *     {
  *       role: "system",
- *      content: "Extract information and return as the structured data following schema",
+ *       content: "use the dummy function",
+formation and return as the structured data following schema",
  *     },
  *   ],
  * });
@@ -243,8 +251,8 @@ export function typiaFunction<T>(
     {
       type: "function",
       function: {
-        name,
         strict,
+        name: params.name ?? name,
         parameters: schema,
         description: params.description ?? _description,
       },
