@@ -156,7 +156,7 @@ export function typiaResponseFormat<T>(
     const json = JSON.parse(s);
 
     const result = params.validate(json);
-    if (result.success) {
+    if (!result.success) {
       throw new Error(`${result.errors.toString()}`);
     }
     return json;
