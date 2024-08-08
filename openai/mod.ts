@@ -32,7 +32,7 @@ type Primitive<T> = typia.Primitive<T>;
  */
 interface TypiaResponseFormatParams<T>
   extends TypiaJsonToOpenAIJsonSchemaParams<T> {
-  assertParse: typeof typia.json.createAssertParse<T>;
+  assertParse: ReturnType<typeof typia.json.createAssertParse<T>>;
 }
 
 /**
@@ -133,8 +133,8 @@ export function typiaJsonToOpenAIResponse<T>(
  *  const chat = await client.chat.completions.create({
  *   model: "gpt-4o-mini",
  *   response_format: typiaResponseFormat({
- *     assertParse: typia.json.createAssertParse<Output>
  *     jsonSchema: typia.json.application<[Output]>(),
+ *     assertParse: typia.json.createAssertParse<Output>(),
  *   }),
  *   messages: [
  *     {
@@ -152,5 +152,5 @@ export function typiaResponseFormat<T>(
 
   const response = typiaJsonToOpenAIResponse(params);
 
-  return makeParseableResponseFormat<ParsedT>(response, params.assertParse());
+  return makeParseableResponseFormat<ParsedT>(response, params.assertParse);
 }
