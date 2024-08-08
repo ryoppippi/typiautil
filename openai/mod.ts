@@ -25,8 +25,8 @@ export interface TypiaJsonToOpenAIJsonSchemaParams<T> {
  * Recommended to use `typiaJsonToOpenAIResponse` instead.
  * @see [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).
  */
-export function typiaJsonToOpenAIJsonSchema(
-  { jsonSchema, strict }: Params,
+export function typiaJsonToOpenAIJsonSchema<T>(
+  { jsonSchema, strict }: TypiaJsonToOpenAIJsonSchemaParams<T>,
 ): ResponseFormatJSONSchema.JSONSchema {
   const { schemas } = jsonSchema.components;
 
@@ -84,8 +84,8 @@ export function typiaJsonToOpenAIJsonSchema(
  *  });
  * ```
  */
-export function typiaJsonToOpenAIResponse(
-  params: Params,
+export function typiaJsonToOpenAIResponse<T>(
+  params: TypiaJsonToOpenAIJsonSchemaParams<T>,
 ): ResponseFormatJSONSchema {
   return {
     type: "json_schema",
