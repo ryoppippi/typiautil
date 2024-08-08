@@ -5,8 +5,7 @@ import {
   makeParseableTool,
 } from "openai/lib/parser";
 import type typia from "typia";
-
-type Primitive<T> = typia.Primitive<T>;
+import type { Primitive } from "typia";
 
 /**
  * Params for `typiaJsonToOpenAIJsonSchema` and `typiaJsonToOpenAIResponse`
@@ -129,6 +128,18 @@ export function typiaJsonToOpenAIResponse<T>(
   };
 }
 
+function createParser<T>(validate: ReturnType<typeof typia.createValidate<T>>) {
+  return (input: string): Primitive<T> => {
+    const json = JSON.parse(input);
+
+    const result = validate(json);
+    if (!result.success) {
+      throw new Error(`${result.errors.toString()}`);
+    }
+    return json;
+  };
+}
+
 /**
  * Creates an AutoParseableResponseFormat for OpenAI API from Typia JSON Schema.
  * @see [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).
@@ -170,17 +181,9 @@ export function typiaResponseFormat<T>(
 
   const response = typiaJsonToOpenAIResponse(params);
 
-  const parse = (s: string) => {
-    const json = JSON.parse(s);
+  const parser = createParser(params.validate);
 
-    const result = params.validate(json);
-    if (!result.success) {
-      throw new Error(`${result.errors.toString()}`);
-    }
-    return json;
-  };
-
-  return makeParseableResponseFormat<ParsedT>(response, parse);
+  return makeParseableResponseFormat<ParsedT>(response, parser);
 }
 
 /**
@@ -233,15 +236,7 @@ export function typiaFunction<T>(
     schema,
   } = typiaJsonToOpenAIJsonSchema(params);
 
-  const parser = (s: string) => {
-    const json = JSON.parse(s);
-
-    const result = params.validate(json);
-    if (!result.success) {
-      throw new Error(`${result.errors.toString()}`);
-    }
-    return json;
-  };
+  const parser = createParser(params.validate);
 
   // @ts-expect-error TODO
   return makeParseableTool<unknown>(
