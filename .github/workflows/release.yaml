@@ -32,13 +32,16 @@ jobs:
     needs:
       - jsr
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: denoland/setup-deno@v1
+
+      - uses: oven-sh/setup-bun@v2
         with:
-          deno-version: ${{ env.DENO_VERSION }}
-      - run: deno run -A npm:changelogithub
+          bun-version: latest
+
+      - run: bunx changelogithub
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
