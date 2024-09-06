@@ -9,6 +9,10 @@ A utility library for [typia](https://typia.io/)
 
 ## Utility for OpenAI
 
+<details>
+<summary>
+  Deprecated, use <code>typia.llm</code> instead
+</summary>
 
 ### `typiaResponseFormat`
 
@@ -128,6 +132,8 @@ const json = typia.json.validateParse<Output>(chat.choices.at(0)?.message.conten
 
 console.log(json);
 ```
+
+</details>
 
 ## LICENSE
 
