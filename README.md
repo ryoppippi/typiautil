@@ -7,14 +7,14 @@ A utility library for [typia](https://typia.io/)
 
 ## Funcitons 
 
-## Utility for OpenAI
+### Utility for OpenAI
 
 <details>
 <summary>
   Deprecated, use <code>typia.llm</code> instead
 </summary>
 
-### `typiaResponseFormat`
+#### `typiaResponseFormat`
 
 typia version of [`zodResponseFormat`](https://github.com/openai/openai-node/blob/31e4afd6ca50e8e2560598296c099390c5956e31/src/helpers/zod.ts#L56-L73)
 
@@ -50,7 +50,7 @@ const completion = await client.beta.chat.completions.parse({
 console.log(completion.choices[0].message.parsed);
 ```
 
-### `typiaFunction`
+#### `typiaFunction`
 
 typia version of [`zodFunction`](https://github.com/openai/openai-node/blob/31e4afd6ca50e8e2560598296c099390c5956e31/src/helpers/zod.ts#L80-L106)
 
