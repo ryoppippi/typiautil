@@ -8,7 +8,7 @@
       "jsr:@std/internal@^1.0.4": "jsr:@std/internal@1.0.4",
       "npm:changelogithub": "npm:changelogithub@0.13.7",
       "npm:cronstrue": "npm:cronstrue@2.50.0",
-      "npm:openai@^4.55.1": "npm:openai@4.67.0",
+      "npm:openai@^4.55.1": "npm:openai@4.68.2",
       "npm:typia@^6.7.2": "npm:typia@6.7.2_typescript@5.5.4"
     },
     "jsr": {
@@ -43,18 +43,18 @@
       "@types/node-fetch@2.6.11": {
         "integrity": "sha512-24xFj9R5+rfQJLRyM56qh+wnVSYhyXC2tkoBndtY0U+vubqNsYXGjufB2nn8Q6gt0LrARwL6UBtMCSVCwl4B1g==",
         "dependencies": {
-          "@types/node": "@types/node@22.7.4",
-          "form-data": "form-data@4.0.0"
+          "@types/node": "@types/node@22.7.9",
+          "form-data": "form-data@4.0.1"
         }
       },
-      "@types/node@18.19.54": {
-        "integrity": "sha512-+BRgt0G5gYjTvdLac9sIeE0iZcJxi4Jc4PV5EUzqi+88jmQLr+fRZdv2tCTV7IHKSGxM6SaLoOXQWWUiLUItMw==",
+      "@types/node@18.19.59": {
+        "integrity": "sha512-vizm2EqwV/7Zay+A6J3tGl9Lhr7CjZe2HmWS988sefiEmsyP9CeXEleho6i4hJk/8UtZAo0bWN4QPZZr83RxvQ==",
         "dependencies": {
           "undici-types": "undici-types@5.26.5"
         }
       },
-      "@types/node@22.7.4": {
-        "integrity": "sha512-y+NPi1rFzDs1NdQHHToqeiX2TIS79SWEAw9GYhkkx8bD0ChpfqC+n2j5OXOCpzfojBEBt6DnEnnG9MY0zk1XLg==",
+      "@types/node@22.7.9": {
+        "integrity": "sha512-jrTfRC7FM6nChvU7X2KqcrgquofrWLFDeYC1hKfwNWomVvrn7JIksqf344WN2X/y8xrgqBd2dJATZV4GbatBfg==",
         "dependencies": {
           "undici-types": "undici-types@6.19.8"
         }
@@ -448,8 +448,8 @@
         "integrity": "sha512-qfqtYan3rxrnCk1VYaA4H+Ms9xdpPqvLZa6xmMgFvhO32x7/3J/ExcTd6qpxM0vH2GdMI+poehyBZvqfMTto8A==",
         "dependencies": {}
       },
-      "form-data@4.0.0": {
-        "integrity": "sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==",
+      "form-data@4.0.1": {
+        "integrity": "sha512-tzN8e4TX8+kkxGPK8D5u0FNmjPUjw3lwC9lSLxxoB/+GtsJG91CO8bSWy73APlgAZzZbXEYZJuxjkHH2w+Ezhw==",
         "dependencies": {
           "asynckit": "asynckit@0.4.0",
           "combined-stream": "combined-stream@1.0.8",
@@ -780,10 +780,10 @@
           "is-wsl": "is-wsl@2.2.0"
         }
       },
-      "openai@4.67.0": {
-        "integrity": "sha512-jdsPSEdZbUNVtvEFE/eeL4FjKavyVMJJEdGMZk9vExglqUrblEcFxi3LK2WhskhrYKAU1MgJAI+dK9pDcA5z5w==",
+      "openai@4.68.2": {
+        "integrity": "sha512-Ys3Jl9vkBUFtrFj4pgrF7rMte4JNekZoMgI6dWkkpOIwNUKGkc4I8jTqv86LB+TcoqkTPzV6DS269dPR9ILWsQ==",
         "dependencies": {
-          "@types/node": "@types/node@18.19.54",
+          "@types/node": "@types/node@18.19.59",
           "@types/node-fetch": "@types/node-fetch@2.6.11",
           "abort-controller": "abort-controller@3.0.0",
           "agentkeepalive": "agentkeepalive@4.5.0",
